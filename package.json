@@ -1,0 +1,24 @@
+{
+  "name": "Websockets-DHT22-ESP",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bbandeo/Websockets-DHT22-ESP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bbandeo/Websockets-DHT22-ESP/issues"
+  },
+  "homepage": "https://github.com/bbandeo/Websockets-DHT22-ESP#readme",
+  "dependencies": {
+    "firebase": "^8.1.1",
+    "xmlhttprequest": "^1.8.0"
+  }
+}
