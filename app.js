@@ -86,3 +86,100 @@ setInterval(() => {
 
 }, 600000);
 
+
+/*
+
+
+
+// INTERVALO DE ESCRITURA EN FIREBASE
+setInterval(() => {
+    let connectedRef = firebase.database().ref(".info/connected");
+    connectedRef.on("value", (snap) => {
+        uploadFeatures = fn.readValues();
+            if (uploadFeatures.length > 0) {
+              payload = {};
+                    uploadFeatures.forEach((e) => {
+                      const timeString = fn.formatDateNow();
+                      let title = e.tagName.replace(/\./g,"-");
+                      message = {
+                        "tagName": e.tagName,
+                        "tagValue": e.tagValue,
+                        "Quality": e.Quality,
+                        "server_timestamp": {
+                          ".sv": "timestamp",
+                        },
+                        "system_timestamp": e.timeStamp,
+                        "hasChanged": e.hasChanged,
+                        User: fn.userNum
+                      };
+                      payload[`Logs/${title}/${timeString}`] = message;
+                    });
+              console.log(payload);
+              ref.update(payload);
+              console.log("Uploaded..");
+              // VER ACA QUE ESTOY SUBIENDO CUALQUIER COSA
+              fn.deleteValues();
+            }
+
+    });
+  }, uploadTime);
+
+
+  on("/temperature"
+  ("/humidity",
+  ("/pressure"
+  xhttp.send();
+
+
+  xhttp.open("GET", "/temperature", true);
+
+  server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
+    Serial.println("INDEX REQUESTED");
+    request->send(SPIFFS, "/index.html");
+  });
+    server.on("/temperature", HTTP_GET, [](AsyncWebServerRequest *request){
+    Serial.println("TEMP REQUESTED");
+    request->send_P(200, "text/plain", readBME280Temperature().c_str());
+  });
+  server.on("/humidity", HTTP_GET, [](AsyncWebServerRequest *request){
+    Serial.println("HUM REQUESTED");
+    request->send_P(200, "text/plain", readBME280Humidity().c_str());
+  });
+   server.on("/pressure", HTTP_GET, [](AsyncWebServerRequest *request){
+    Serial.println("DAX REQUESTED");
+    request->send_P(200, "text/plain", readBME280Pressure().c_str());
+  });
+
+
+    let connectedRef = firebase.database().ref(".info/connected");
+    connectedRef.on("value", (snap) => {
+        uploadFeatures = fn.readValues();
+        if (uploadFeatures.length > 0) {
+            payload = {};
+            uploadFeatures.forEach((e) => {
+                const timeString = fn.formatDateNow();
+                let title = e.tagName.replace(/\./g, "-");
+                message = {
+                    "tagName": e.tagName,
+                    "tagValue": e.tagValue,
+                    "Quality": e.Quality,
+                    "server_timestamp": {
+                        ".sv": "timestamp",
+                    },
+                    "system_timestamp": e.timeStamp,
+                    "hasChanged": e.hasChanged,
+                    User: fn.userNum
+                };
+                payload[`Logs/${title}/${timeString}`] = message;
+            });
+            console.log(payload);
+            ref.update(payload);
+            console.log("Uploaded..");
+            // VER ACA QUE ESTOY SUBIENDO CUALQUIER COSA
+            fn.deleteValues();
+        }
+
+    });
+
+
+  */
