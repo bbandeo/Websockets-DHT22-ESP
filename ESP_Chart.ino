@@ -41,7 +41,6 @@ String readBME280Humidity() {
      return String(h,2);
   }
 }
-
 String readBME280Pressure() {
   float p = dht.readTemperature(true);
   if (isnan(p)) {
@@ -92,27 +91,13 @@ void setup(){
 }
  
 void loop(){
-  /*
-// float humedad = dht.readHumidity();
-//  float temperatura = dht.readTemperature();
-//  float farenheit = dht.readTemperature(true);
+   // upload a file to /upload
+  server.on("/upTemp", HTTP_POST, [](AsyncWebServerRequest *request){
+    request->send_P(200, "text/plain", readBME280Temperature().c_str());
+  });
+  server.on("/upHum", HTTP_POST, [](AsyncWebServerRequest *request){
+    request->send_P(200, "text/plain", readBME280Humidity().c_str());
+  });
 
-  // if(isnan(humedad) || isnan(temperatura) || isnan(farenheit)){
-  //   Serial.println("Failed to read from DHT22 sensor");
-    
-  //   delay(2500);
-  //   return;
-  //   }
-
-Serial.print("Humedad: ");
-Serial.print(humedad);
-Serial.print(" % ");
-Serial.print("  ||  Temperatura: ");
-Serial.print(temperatura);
-Serial.print(" °C ");
-Serial.print(" - ");
-Serial.print(farenheit);
-Serial.print(" °F ");
-Serial.println(WiFi.localIP());
-delay(2500);*/
+  delay(90000);
 }
